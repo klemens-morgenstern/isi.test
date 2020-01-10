@@ -67,6 +67,12 @@ void __metal_unit_break(__metal_level lvl,
 #define __metal_unit_impl(...) __metal_unit_break(__VA_ARGS__)
 #endif
 
+#if defined(METAL_UNIT_ONLY_ERRORS) || defined(METAL_UNIT_ONLY_WARNINGS)
+#define __metal_unit_call(Function, ...) Function()
+#else
+#define __metal_unit_call(...) __metal_call(__VA_ARGS__)
+#endif
+
 int __metal_report();
 
 #define __METAL_BITWISE_STEP(Lhs, Rhs, Index, Oper) (((Lhs >> Index) & 1) Oper ((Rhs >> Index) & 1))

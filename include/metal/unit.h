@@ -18,7 +18,7 @@
 #define METAL_ERRORED()     +__metal_errored
 #define METAL_IS_CRITICAL() +__metal_critical
 
-#define METAL_CALL(Function, Message) __metal_call(Function, Message, __FILE__, __LINE__);
+#define METAL_CALL(Function, Message) __metal_unit_call(Function, Message, __FILE__, __LINE__);
 
 #define METAL_REPORT() __metal_report()
 
